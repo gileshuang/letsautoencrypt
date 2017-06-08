@@ -71,6 +71,7 @@ if [[ -z $(ss -ltnp | grep -P ':80\s') ]]; then
 	file-server.elf -dir "/.well-known/acme-challenge/:${CHALLENGE_DIR}/.well-known/acme-challenge/" -http ":80" &
 	FILE_SERVER_PID=$!
 elif [[ -n $(systemctl list-units --no-pager | grep nginx | grep running) ]]; then
+	USE_NGINX=1
 	systemctl reload nginx || RELOAD_STAT=1
 	if [[ ${RELOAD_STAT} -eq 1 ]]; then
 		echo "ERROR: nginx reload failed"
@@ -90,5 +91,12 @@ acme.sh --home ${DATA_DIR}/acme --signcsr --csr ${DOMAIN_CSR} \
 if [[ ${FILE_SERVER_PID} -ne 0 ]]; then
 	kill ${FILE_SERVER_PID}
 	sleep 1
+fi
+if [[ ${USE_NGINX} -eq 1 ]]; then
+	RELOAD_STAT=0
+	systemctl reload nginx || RELOAD_STAT=1
+	if [[ ${RELOAD_STAT} -eq 1 ]]; then
+		echo "ERROR: nginx reload failed"
+	fi
 fi
 

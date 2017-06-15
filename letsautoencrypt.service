@@ -1,0 +1,7 @@
+[Unit]
+Description=Use acme.sh to auto sign https certs from Lets Encrypt
+
+[Service]
+Type=oneshot
+ExecStart=/usr/lib/letsautoencrypt/letsautoencrypt.sh
+

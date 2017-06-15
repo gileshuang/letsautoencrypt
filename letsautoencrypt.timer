@@ -1,0 +1,10 @@
+[Unit]
+Description=Auto sign https certs from Lets Encrypt
+
+[Timer]
+OnBootSec=10min
+OnUnitActiveSec=2mouths
+
+[Install]
+WantedBy=timers.target
+

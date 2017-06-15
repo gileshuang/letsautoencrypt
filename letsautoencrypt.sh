@@ -8,6 +8,12 @@ fi
 if [[ -f "/etc/letsautoencrypt/env.conf" ]]; then
 	source /etc/letsautoencrypt/env.conf
 fi
+if [[ -f "${INS_DIR}/https-acme.conf" ]]; then
+	NGINX_SOURCE_CONF=${INS_DIR}/https-acme.conf
+fi
+if [[ -f "/etc/letsautoencrypt/https-acme.conf" ]]; then
+	NGINX_SOURCE_CONF=/etc/letsautoencrypt/https-acme.conf
+fi
 export PATH=${INS_DIR}:${PATH}
 
 ## Set variates
@@ -56,19 +62,19 @@ openssl req -new -sha256 -key ${DOMAIN_KEY} -subj "/" -reqexts SAN \
 FIRST_DOMAIN=$(echo ${SubjectAltName} | \
 	awk -F ',' '{print $1}' | \
 	awk -F ':' '{print $2}')
-if [[ -f "${INS_DIR}/acme-challenge.conf" ]]; then
+if [[ -f "${NGINX_SOURCE_CONF}" ]]; then
 	mkdir -p /etc/nginx
 	sed -e "s#%FIRST_DOMAIN%#${FIRST_DOMAIN}#g" \
 		-e "s#%DATA_DIR%#${DATA_DIR}#g" \
 		-e "s#%CHALLENGE_DIR%#${CHALLENGE_DIR}#g" \
-		${INS_DIR}/acme-challenge.conf > ${NGINX_INCLUDE_CONF}
+		${NGINX_SOURCE_CONF} > ${NGINX_INCLUDE_CONF}
 fi
 if [[ ! -f "${DATA_DIR}/acme/${FIRST_DOMAIN}/fullchain.cer" ]]; then
 	touch ${DATA_DIR}/acme/${FIRST_DOMAIN}/fullchain.cer
 fi
 FILE_SERVER_PID=0
 if [[ -z $(ss -ltnp | grep -P ':80\s') ]]; then
-	file-server.elf -dir "/.well-known/acme-challenge/:${CHALLENGE_DIR}/.well-known/acme-challenge/" -http ":80" &
+	go-simple-httpd.elf -dir "/.well-known/acme-challenge/:${CHALLENGE_DIR}/.well-known/acme-challenge/" -http ":80" &
 	FILE_SERVER_PID=$!
 elif [[ -n $(systemctl list-units --no-pager | grep nginx | grep running) ]]; then
 	USE_NGINX=1

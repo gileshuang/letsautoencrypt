@@ -1,1 +1,7 @@
 .*.swp
+acme.sh
+go-simple-httpd.elf
+pkg/
+src/
+*.pkg.tar.xz
+

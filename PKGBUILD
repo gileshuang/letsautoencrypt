@@ -3,7 +3,7 @@
 
 pkgname=letsautoencrypt
 pkgver=20170622
-pkgrel=1
+pkgrel=2
 pkgdesc='Use acme.sh to auto sign https certs from Lets Encrypt'
 url='https://github.com/alienhjy/letsautoencrypt'
 license=('GPL3')
@@ -21,7 +21,7 @@ source=(
 )
 md5sums=(
 	"f1532d12d4ec451fc3b309cefe9f4a77"
-	"491c1c0310e73a875c2ee0a5a9d2e757"
+	"91d34efe5a8756a43ee0bfa5a83330f1"
 	"7f7c2fd1176553adfdcacf39b59637ea"
 	"932829cb1c0bbda48d94fa6ce9eb954f"
 	"ccadd10ae5b5bebb83e997548141c426"
@@ -32,7 +32,9 @@ source_i686=("go-simple-httpd.elf::https://github.com/alienhjy/go-simple-httpd/r
 md5sums_i686=("244c0ba45c4cb40fde6365dd37d41c41")
 source_x86_64=("go-simple-httpd.elf::https://github.com/alienhjy/go-simple-httpd/releases/download/v0.1/go-simple-httpd.x86_64.elf")
 md5sums_x86_64=("6fd0d4220df941e5c1268c12c021ca2b")
-backup=("etc/letsautoencrypt/env.conf")
+backup=(
+	"etc/letsautoencrypt/env.conf"
+)
 
 package() {
 	install -Dm644 env.conf ${pkgdir}/etc/letsautoencrypt/env.conf

@@ -3,7 +3,7 @@
 
 pkgname=letsautoencrypt
 pkgver=20170622
-pkgrel=3
+pkgrel=4
 pkgdesc='Use acme.sh to auto sign https certs from Lets Encrypt'
 url='https://github.com/alienhjy/letsautoencrypt'
 license=('GPL3')
@@ -41,6 +41,7 @@ package() {
 	install -Dm644 env.conf ${pkgdir}/usr/lib/letsautoencrypt/env.conf
 	install -Dm644 https-acme.conf ${pkgdir}/etc/letsautoencrypt/https-acme.conf.example
 	install -Dm644 https-acme.conf ${pkgdir}/usr/lib/letsautoencrypt/https-acme.conf
+	install -Dm755 acme.sh ${pkgdir}/usr/lib/letsautoencrypt/acme.sh
 	install -Dm755 letsautoencrypt.sh ${pkgdir}/usr/lib/letsautoencrypt/letsautoencrypt.sh
 	install -Dm755 go-simple-httpd.elf ${pkgdir}/usr/lib/letsautoencrypt/go-simple-httpd.elf
 	install -Dm644 letsautoencrypt.service ${pkgdir}/usr/lib/systemd/system/letsautoencrypt.service

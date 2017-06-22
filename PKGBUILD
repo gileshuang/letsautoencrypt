@@ -2,7 +2,7 @@
 # Maintainer: Huang Jiayao <huangjiayao_1992@163.com>
 
 pkgname=letsautoencrypt
-pkgver=20170615
+pkgver=20170622
 pkgrel=1
 pkgdesc='Use acme.sh to auto sign https certs from Lets Encrypt'
 url='https://github.com/alienhjy/letsautoencrypt'

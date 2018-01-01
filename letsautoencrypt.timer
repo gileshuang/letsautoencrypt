@@ -3,7 +3,7 @@ Description=Auto sign https certs from Lets Encrypt
 
 [Timer]
 OnBootSec=10min
-OnUnitActiveSec=2mouths
+OnUnitActiveSec=2months
 
 [Install]
 WantedBy=timers.target

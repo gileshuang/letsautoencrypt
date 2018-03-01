@@ -3,7 +3,7 @@
 
 pkgname=letsautoencrypt
 pkgver=20180302
-pkgrel=2
+pkgrel=3
 pkgdesc='Use acme.sh to auto sign https certs from Lets Encrypt'
 url='https://github.com/alienhjy/letsautoencrypt'
 license=('GPL3')
@@ -21,7 +21,7 @@ source=(
 )
 md5sums=('f1532d12d4ec451fc3b309cefe9f4a77'
          '91d34efe5a8756a43ee0bfa5a83330f1'
-         'eea13ee0801c5d4938e3da0469ae9a70'
+         '538be80c7fa225a5c56a1d73afccae83'
          '932829cb1c0bbda48d94fa6ce9eb954f'
          'cd0ef8f0abadf217d379b4fdadc996c1'
          'f6ba2c567df796739913f50ea5ad7c97'

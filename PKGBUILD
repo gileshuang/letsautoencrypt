@@ -2,7 +2,7 @@
 # Maintainer: Huang Jiayao <huangjiayao_1992@163.com>
 
 pkgname=letsautoencrypt
-pkgver=20180302
+pkgver=20180916
 pkgrel=3
 pkgdesc='Use acme.sh to auto sign https certs from Lets Encrypt'
 url='https://github.com/alienhjy/letsautoencrypt'
@@ -21,7 +21,7 @@ source=(
 )
 md5sums=('f1532d12d4ec451fc3b309cefe9f4a77'
          '91d34efe5a8756a43ee0bfa5a83330f1'
-         '538be80c7fa225a5c56a1d73afccae83'
+         '4aa8e567775795dee4785fded1a29e66'
          '932829cb1c0bbda48d94fa6ce9eb954f'
          'cd0ef8f0abadf217d379b4fdadc996c1'
          'f6ba2c567df796739913f50ea5ad7c97'

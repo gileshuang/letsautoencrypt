@@ -2,10 +2,10 @@
 # Maintainer: Huang Jiayao <huangjiayao_1992@163.com>
 
 pkgname=letsautoencrypt
-pkgver=20180916
-pkgrel=3
+pkgver=20190130
+pkgrel=1
 pkgdesc='Use acme.sh to auto sign https certs from Lets Encrypt'
-url='https://github.com/alienhjy/letsautoencrypt'
+url='https://github.com/gileshuang/letsautoencrypt'
 license=('GPL3')
 arch=('x86_64')
 depends=('bash' 'openssl')
@@ -25,9 +25,9 @@ md5sums=('f1532d12d4ec451fc3b309cefe9f4a77'
          '932829cb1c0bbda48d94fa6ce9eb954f'
          'cd0ef8f0abadf217d379b4fdadc996c1'
          'f6ba2c567df796739913f50ea5ad7c97'
-         '2919857d636ebf0e9b9e0c51d73e5d37')
+         SKIP)
 md5sums_x86_64=('6fd0d4220df941e5c1268c12c021ca2b')
-source_x86_64=("go-simple-httpd.elf::https://github.com/alienhjy/go-simple-httpd/releases/download/v0.1/go-simple-httpd.x86_64.elf")
+source_x86_64=("go-simple-httpd.elf::https://github.com/gileshuang/go-simple-httpd/releases/download/v0.1/go-simple-httpd.x86_64.elf")
 backup=(
 	"etc/letsautoencrypt/env.conf"
 )

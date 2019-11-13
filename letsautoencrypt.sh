@@ -89,6 +89,10 @@ else
 	exit 1
 fi
 
+## Upgrade acme.sh
+wget -q -O acme.sh https://raw.githubusercontent.com/Neilpang/acme.sh/master/acme.sh \
+        && chmod 755 acme.sh
+
 ## Sign certs
 mkdir -p ${DATA_DIR}/acme
 acme.sh --home ${DATA_DIR}/acme --signcsr --csr ${DOMAIN_CSR} \
